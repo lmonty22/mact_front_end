@@ -24,8 +24,17 @@ function fetchMact(){
 
 function displayMact(mact){
     const mactDiv = document.querySelector('.mact-container')
+    const imageDiv = document.createElement('div')
+    const defaultH1Overlay = document.getElementById('default-h1')
     const image = document.createElement('img')
     image.className = "image"
     image.src = mact.image
-    mactDiv.append(image)
+    const content = document.createElement('p')
+    content.innerText = mact.content
+    const br = document.createElement('br')
+    const br2 = document.createElement('br')
+    mactDiv.append(defaultH1Overlay)
+    defaultH1Overlay.append(imageDiv, br2)
+    imageDiv.append(image, br, content)
+
 }
