@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script type="text/javascript" src='index.js'></script>
     <script type="text/javascript" src='form.js'></script>
+    <script type="text/javascript" src='myMacts.js'></script>
     <title>Document</title>
 </head>
 <header class="header center">
@@ -27,6 +28,7 @@
                 <figure class="image-div">
                     <img class="mact-image">
                     <figcaption class="mact-content"></figcaption>
+                    <figcaption class="mact-username"></figcaption>
                 </figure>
                 <button id="bwd-arrow">↩</button>
                 <button id="fwd-arrow">↪</button> 
@@ -60,10 +62,16 @@
                 <button id='preview-btn'>Preview</button>
             </fieldset>
         </form>
+    
+    
+    <div id="my-macts" class="container hidden">
 
 
 
-    <div class= 'login-form center form'>
+    </div>
+
+
+    <div class= 'login-form center form' id="login-container">
         <form class="center sign-in-form " id="login-form">
             <fieldset class = "field-set">
               <legend>Sign In or Sign Up</legend>

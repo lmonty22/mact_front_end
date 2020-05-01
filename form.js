@@ -4,16 +4,12 @@ let mactsUrl2 = 'http://localhost:3000/macts'
 
 function toCreateForm(){
     
-    const mactContainer = document.querySelector('.mact-container')
-    mactContainer.classList.add('hidden')
-
+    hideDivs()
     const form = document.getElementById('create-form')
     form.classList.remove('hidden')
 
     const submitBtn = document.getElementById('submit-btn')
     submitBtn.addEventListener('click', (e) =>  handleCreateForm(e, form))
-
-
 }
 
 function handleCreateForm(e, form){
@@ -22,12 +18,13 @@ function handleCreateForm(e, form){
     const imageUrlInput = document.getElementById('image-url-field').value
     const contentField = document.getElementById('content-field').value
     const fontColorField = document.getElementById('font-color').value
-
+    const user_id = document.querySelector('.username').id
     let mactObj = {
         title: titleInput,
         image: imageUrlInput,
         content: contentField,
-        text_color: fontColorField
+        text_color: fontColorField,
+        user_id: user_id
     }
 
     fetch(mactsUrl2, {
@@ -40,5 +37,5 @@ function handleCreateForm(e, form){
     })
     .then (mact => console.log(mact))
     form.classList.add('hidden')
-    debugger
+  
 }

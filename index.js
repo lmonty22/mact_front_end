@@ -9,31 +9,37 @@ document.addEventListener('DOMContentLoaded', function(){
     // const loginForm = document.querySelector('.login-form')
 
     // if(!username){
-        renderLogin();
+    renderLogin();
     // }else{
     //     loginForm.classList.add('hidden')
     // }
 
     fetchMact();
-
      // const homeBtn = document.getElementById("home-btn")
     // homeBtn.addEventListener('click', fetchMact)
 
-    const addBtn = document.getElementById('add-btn')
-    addBtn.addEventListener('click', toCreateForm)
+   
 });
 
-function renderLogin(){
+function hideDivs(){
+    const macDiv = document.querySelector('#mact-container')
+    macDiv.classList.add('hidden')
+    const createForm = document.querySelector('#create-form')
+    createForm.classList.add('hidden')
+    const loginContainer = document.querySelector('#login-container')
+    loginContainer.classList.add('hidden')
+    const myMacts = document.querySelector('#my-macts')
+    myMacts.classList.add('hidden')
+}
 
+function renderLogin(){
    const signUpBtn = document.getElementById('sign-up')
    signUpBtn.addEventListener('click', saveLogin)
 }
 
 function saveLogin(e){
     e.preventDefault()
-    
     const usernameInput = document.getElementById('username-field').value
-
     let userObj = {
         username: usernameInput
     }
@@ -46,13 +52,17 @@ function saveLogin(e){
     .then(response => response.json())
     .then((user)=> renderUsername(user))
 
-    const signUpForm = document.querySelector('.login-form')
-    signUpForm.classList.add('hidden')
-
+    
+    hideDivs()
     const mactContainer = document.getElementById('mact-container')
     mactContainer.classList.remove('hidden')
-}
 
+    const addBtn = document.getElementById('add-btn')
+    addBtn.addEventListener('click', toCreateForm)
+
+    const myMactBtn = document.querySelector('#my-macts-btn')
+    myMactBtn.addEventListener('click', renderMyMacts)
+}
 function renderUsername(user){
 
     const header = document.querySelector('.header')
@@ -90,6 +100,8 @@ function displayMact(mact){
     image.src = mact.image
     const content = document.querySelector(".mact-content")
     content.innerText = mact.content
+    const username = document.querySelector(".mact-username")
+    username.innerText = `@${mact.user.username}`
     const fwdArrow = document.querySelector('#fwd-arrow')
     const bwdArrow = document.querySelector('#bwd-arrow')
 
