@@ -13,60 +13,35 @@ function fetchMact(){
 };
 
 function displayMact(mact){
-    const mactDiv = document.querySelector('.mact-container')
-    // const imageDiv = document.createElement('div')
-    const imageDiv = document.querySelector('.image-div')
-    imageDiv.innerHTML = ''
-    imageDiv.id = mact.id
-    const defaultH1Overlay = document.getElementById('default-h1')
-    // clearing this element and leaving only preferred text
-    // to prevent repeating on new fetch requests
-    defaultH1Overlay.innerHTML = 'Did you know? '
-    const image = document.createElement('img')
-    image.className = "image"
-    image.src = mact.image
-    const content = document.createElement('p')
-    content.innerText = mact.content
-    const br = document.createElement('br')
-    const br2 = document.createElement('br')
-    mactDiv.append(defaultH1Overlay)
-    defaultH1Overlay.append(imageDiv, br2)
-    const fwdArrow = document.createElement('button')
-    fwdArrow.innerText = '↪'
-    fwdArrow.id = 'fwd-arrow'
-    const bwdArrow = document.createElement('button')
-    bwdArrow.innerText = '↩'
-    bwdArrow.id = 'bwd-arrow'
-    imageDiv.append(image, content, bwdArrow, fwdArrow)
-   
-    //mactDiv holds defaultH1Overlay
-    //defaultH1Overlay holds imageDiv and br2
-    //imageDiv holds image, br, content, bwdArrow, fwdArrow
-
-    //     <div class= "mact-container" id="mact-viewer">
-    //         <h1 id="default-h1">Did you know?</h1>
-                    //br2
-    //         <div class = "image-div">
-                    //image     
-                    //br 
-                    //content
-                    //bwdArrow
-                    //fwdArrow
-    //         </div>
+    //     <div class= "mact-container" >
+    //     <div class= "mact-viewer">
+    //     <h1 id="default-h1">Did you know?</h1>
+    //     <figure class="image-div">
+    //         <img class="mact-image">
+    //         <figcaption class="mact-content"></figcaption>
+    //     </figure>
+    //     <button id="bwd-arrow">↩</button>
+    //     <button id="fwd-arrow">↪</button> 
     //     </div>
-
+    // </div>
+    const mactDiv = document.querySelector('.mact-viewer')
+    const imageDiv = document.querySelector('.image-div')
+    mactDiv.id = mact.id
+    const image = document.querySelector('.mact-image')
+    image.src = mact.image
+    const content = document.querySelector(".mact-content")
+    content.innerText = mact.content
+    const fwdArrow = document.querySelector('#fwd-arrow')
+    const bwdArrow = document.querySelector('#bwd-arrow')
 
     fwdArrow.addEventListener('click', showNextMact)
     bwdArrow.addEventListener('click', showPreviousMact)
 
 };
 
-
 function showNextMact(e){
 
-let id = parseInt(e.target.parentElement.id)
-
-
+    let id = parseInt(e.target.parentElement.id)
     // fetch next mact from the api 
     // render the new mact to the DOM
     fetch(mactsUrl + `/${id + 1 }`)
@@ -86,8 +61,6 @@ let id = parseInt(e.target.parentElement.id)
 function showPreviousMact(e){
 
     let id = parseInt(e.target.parentElement.id)
-    
-    
         // fetch next mact from the api 
         // render the new mact to the DOM
         fetch(mactsUrl + `/${id - 1 }`)
