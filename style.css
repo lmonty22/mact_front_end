@@ -7,6 +7,12 @@
 
 }
 
+
+
+.meme-text{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 .form{
 
   --form-border-color: blue;
