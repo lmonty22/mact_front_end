@@ -7,30 +7,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script type="text/javascript" src='index.js'></script>
+    <script type="text/javascript" src='form.js'></script>
     <title>Document</title>
 </head>
-<header class="header">
-    <a class="logo">Logo</a>
-    <a class="button">Home</a>
-    <a class="button">Add a Mact</a>
-    <a class="button">My Macts</a>
+<header class="header center">
+    <a class="logo" id="logo">Mact</a>
+    <a class="button" id="home-btn">Home</a>
+    <a class="button" id="add-btn">Add a Mact</a>
+    <a class="button" id="my-macts-btn">My Macts</a>
   </header>
 
 <body>
 
-<div class ='background'>
-        <div class= "mact-container" >
-            <div class= "mact-viewer">
-            <h1 id="default-h1">Did you know?</h1>
-            <figure class="image-div">
-                <img class="mact-image">
-                <figcaption class="mact-content"></figcaption>
-            </figure>
-            <button id="bwd-arrow">↩</button>
-            <button id="fwd-arrow">↪</button> 
+
+    <div class ='background'>
+            <div id= 'mact-container'class= "mact-container hidden" >
+                <div class= "mact-viewer">
+                <h1 id="default-h1">Did you know?</h1>
+                <figure class="image-div">
+                    <img class="mact-image">
+                    <figcaption class="mact-content"></figcaption>
+                </figure>
+                <button id="bwd-arrow">↩</button>
+                <button id="fwd-arrow">↪</button> 
+                </div>
             </div>
         </div>
+
+        <form class="center form hidden" id="create-form">
+            <fieldset class = "field-set">
+              <legend>Create a Mact</legend>
+              <label for="title">Title</label><br>
+              <input type="text" id="title-field" placeholder="Title ... "/><br>
+              <br>
+              <label for="image">Image</label><br>
+              <input type="text" id="image-url-field" placeholder="Image URL ..."/><br>
+                <br>
+                <label for="content">Fact</label><br>
+                <input type="textarea" id="content-field" placeholder="Add a Fact... "/><br>
+                <br>
+                <label for="text-color">Choose a font color!</label>
+                <select id="font-color">
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="orange">Orange</option>
+                    <option value="green">Green</option>
+                </select><br>
+                <button id='submit-btn'>Submit!</button>
+                <button id='preview-btn'>Preview</button>
+            </fieldset>
+        </form>
+
+
+
+    <div class= 'login-form center form'>
+        <form class="center sign-in-form " id="login-form">
+            <fieldset class = "field-set">
+              <legend>Sign In or Sign Up</legend>
+              <label for="title">Username</label><br>
+              <input type="text" id="username-field" placeholder="Username... "/><br>
+              <br>
+
+                <button id='sign-up'>Sign In / Sign Up</button>
+            </fieldset>
     </div>
-</body>
-</body>
+
+
+    </body>
 </html>

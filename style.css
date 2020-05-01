@@ -1,9 +1,26 @@
-
-.header {
+.center {
 
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+
+}
+
+.form{
+
+  --form-border-color: blue;
+  --universal-margin: 15px;
+  
+
+}
+
+.field-set{
+
+
+    width: 30rem;
+    height: 30rem;
+    margin: 5rem 2rem;
 
 }
 

@@ -1,10 +1,69 @@
-const baseUrl = 'http://localhost:3000'
-const mactsUrl = 'http://localhost:3000/macts'
+let baseUrl = 'http://localhost:3000'
+let mactsUrl = 'http://localhost:3000/macts'
+let usersUrl = 'http://localhost:3000/users'
 
 document.addEventListener('DOMContentLoaded', function(){
     console.log('Dom Loaded')
+
+    // const username = document.querySelector('.username')
+    // const loginForm = document.querySelector('.login-form')
+
+    // if(!username){
+        renderLogin();
+    // }else{
+    //     loginForm.classList.add('hidden')
+    // }
+
     fetchMact();
+
+     // const homeBtn = document.getElementById("home-btn")
+    // homeBtn.addEventListener('click', fetchMact)
+
+    const addBtn = document.getElementById('add-btn')
+    addBtn.addEventListener('click', toCreateForm)
 });
+
+function renderLogin(){
+
+   const signUpBtn = document.getElementById('sign-up')
+   signUpBtn.addEventListener('click', saveLogin)
+}
+
+function saveLogin(e){
+    e.preventDefault()
+    
+    const usernameInput = document.getElementById('username-field').value
+
+    let userObj = {
+        username: usernameInput
+    }
+
+    fetch(usersUrl, {
+        method: 'POST',
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(userObj)
+    })
+    .then(response => response.json())
+    .then((user)=> renderUsername(user))
+
+    const signUpForm = document.querySelector('.login-form')
+    signUpForm.classList.add('hidden')
+
+    const mactContainer = document.getElementById('mact-container')
+    mactContainer.classList.remove('hidden')
+}
+
+function renderUsername(user){
+
+    const header = document.querySelector('.header')
+    const a = document.createElement('a')
+    a.className = 'text'
+    a.classList.add('username')
+    a.id = user.id 
+    a.innerText = `Username: ${user.username}`
+    header.append(a)
+
+}
 
 function fetchMact(){
     fetch(`http://localhost:3000/macts`)
