@@ -7,17 +7,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // const username = document.querySelector('.username')
     // const loginForm = document.querySelector('.login-form')
-
     // if(!username){
     renderLogin();
     // }else{
     //     loginForm.classList.add('hidden')
     // }
-
-    fetchMact();
-     // const homeBtn = document.getElementById("home-btn")
-    // homeBtn.addEventListener('click', fetchMact)
-
    
 });
 
@@ -54,14 +48,16 @@ function saveLogin(e){
 
     
     hideDivs()
-    const mactContainer = document.getElementById('mact-container')
-    mactContainer.classList.remove('hidden')
-
+    fetchMact()
+   
     const addBtn = document.getElementById('add-btn')
     addBtn.addEventListener('click', toCreateForm)
 
     const myMactBtn = document.querySelector('#my-macts-btn')
     myMactBtn.addEventListener('click', renderMyMacts)
+
+    const homeBtn = document.querySelector('#home-btn')
+    homeBtn.addEventListener('click', fetchMact)
 }
 function renderUsername(user){
 
@@ -93,13 +89,19 @@ function displayMact(mact){
     //     <button id="fwd-arrow">↪</button> 
     //     </div>
     // </div>
+    hideDivs()
+    const mactContainer = document.getElementById('mact-container')
+    mactContainer.classList.remove('hidden')
+    const header = document.querySelector('#default-h1')
+    header.style.color = mact.text_color
     const mactDiv = document.querySelector('.mact-viewer')
-    const imageDiv = document.querySelector('.image-div')
+    // const imageDiv = document.querySelector('.image-div')
     mactDiv.id = mact.id
     const image = document.querySelector('.mact-image')
     image.src = mact.image
     const content = document.querySelector(".mact-content")
     content.innerText = mact.content
+    content.style.color = mact.text_color
     const username = document.querySelector(".mact-username")
     username.innerText = `@${mact.user.username}`
     const fwdArrow = document.querySelector('#fwd-arrow')

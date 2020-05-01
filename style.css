@@ -37,28 +37,37 @@
 }
 
 .background {
+  background-image: url('https://cache.desktopnexus.com/thumbseg/1321/1321036-bigthumbnail.jpg');
+  background-size: cover;
+  filter: opacity(50%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
 
+.foreground{
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .mact-container {
     text-align: center;
     border: grey solid 1px;
-    background-color: white;
+    background-color: black;
     padding: 1rem;
     width: 30rem;
     height: 30rem;
     margin: 5rem 2rem;
-    box-shadow: 3px 4px blue
+    box-shadow: 3px 4px blue;
   }
 
 .mact-image {
   justify-self: center;
   height: 20rem;
   width: auto;
+  object-fit: cover;
 }
 
 .my-mact-image {

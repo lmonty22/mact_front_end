@@ -3,6 +3,7 @@ let usersUrl4 = 'http://localhost:3000/users'
 function renderMyMacts(){
     hideDivs()
     const myMacts = document.querySelector('#my-macts')
+    myMacts.innerHTML =""
     myMacts.classList.remove('hidden')
     const user_id = document.querySelector('.username').id
     fetch(usersUrl4 +`/${user_id}`)
