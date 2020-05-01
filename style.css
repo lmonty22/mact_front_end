@@ -16,15 +16,14 @@
 }
 
 .card {
-  text-align: center;
+  /* text-align: center;
   border: grey solid 1px;
   padding: 1rem;
-  width: 25rem;
-  height: 25rem;
+  width: 30rem;
+  height: 25rem; */
   display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px blue;
-  background-color: white;
+  /* box-shadow: 3px 4px blue;
+  background-color: white; */
 }
 
 .field-set{
@@ -74,6 +73,10 @@
   justify-self: center;
   height: 15;
   width: auto;
+}
+
+.delete-btn {
+
 }
 
 body {

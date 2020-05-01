@@ -1,4 +1,5 @@
 let usersUrl4 = 'http://localhost:3000/users'
+let mactsUrl4 = 'http://localhost:3000/macts'
 
 function renderMyMacts(){
     hideDivs()
@@ -14,6 +15,7 @@ function renderMyMacts(){
 function renderMyMact(mact){
     const myMacts = document.querySelector('#my-macts')
     const cardMact = document.createElement('div')
+    cardMact.id = `mact-${mact.id}`
     const header = document.createElement('h1')
     header.innerText = "Did you know?"
     const image = document.createElement('img')
@@ -24,6 +26,25 @@ function renderMyMact(mact){
     content.innerText = mact.content
     cardMact.classList.add('card')
     myMacts.append(cardMact)
-    cardMact.append(header, br, image, content)
+    const deleteBtn = document.createElement('button')
+    deleteBtn.innerText= "Delete"
+    deleteBtn.className = "delete-btn"
+    deleteBtn.addEventListener('click', () => confirmDelete(mact, cardMact))
+    cardMact.append(header, br, image, content, deleteBtn)
 }
 
+function confirmDelete(mact, cardMact){
+    const r = confirm('Are you sure you want to delete this Mact?')
+    if (r === true){
+        deleteMact(mact)
+    }
+    cardMact.remove()
+
+}
+
+function deleteMact(mact){
+    fetch(mactsUrl4 + `/${mact.id}`,{
+        method: "DELETE"
+    })
+
+ }
