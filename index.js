@@ -89,6 +89,9 @@ function displayMact(mact){
     //     <button id="fwd-arrow">↪</button> 
     //     </div>
     // </div>
+    const commentsUl= document.querySelector('.comments')
+    commentsUl.innerHTML= ''
+
     hideDivs()
     const mactContainer = document.getElementById('mact-container')
     mactContainer.classList.remove('hidden')
@@ -110,13 +113,29 @@ function displayMact(mact){
     fwdArrow.addEventListener('click', showNextMact)
     bwdArrow.addEventListener('click', showPreviousMact)
 
+    if(mact.comments){
+    mact.comments.forEach(comment => renderComments(comment))
+    }else{
+        const commentsUl= document.querySelector('.comments')
+        commentsUl.innerHTML= '<h2>No Comments</h2>'
+    }
+
+    const commentForm = document.querySelector('.comment-form')
+    commentForm.addEventListener('submit', (e) => addComment(e, mact))
+    
 };
+
 
 function showNextMact(e){
 
+
     let id = parseInt(e.target.parentElement.id)
+
     // fetch next mact from the api 
     // render the new mact to the DOM
+
+    //maybe for loop? If an id jumps from 22 to 31, they will not show from the database
+
     fetch(mactsUrl + `/${id + 1 }`)
     .then((response) => {
         return response.json()
@@ -124,7 +143,12 @@ function showNextMact(e){
     
     .then((mact) => {
         if(mact.id){
+
+        const commentsUl= document.querySelector('.comments')
+        commentsUl.innerHTML= ''
+
         return displayMact(mact)
+
         }
         else{ alert('Sorry, outta macts, go make one yourself!')}
     })
@@ -143,9 +167,15 @@ function showPreviousMact(e){
         
         .then((mact) => {
             if(mact.id){
+
+            const commentsUl= document.querySelector('.comments')
+            commentsUl.innerHTML= ''
+    
             return displayMact(mact)
+
             }
             else{ alert('Sorry, outta macts, go make one yourself!')}
         })
+
     
     }

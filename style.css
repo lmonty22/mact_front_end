@@ -81,7 +81,35 @@
   width: auto;
 }
 
-.delete-btn {
+/* .delete-btn {
+
+} */
+
+.comments li {
+  background-color: #fff3a9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+.comments-h3{
+  color: white;
+}
+
+ul {
+  padding: 0;
+}
+
+
+li {
+  list-style: none;
+  
+}
+
+.timestamp {
+
+  font-size: x-small;
 
 }
 

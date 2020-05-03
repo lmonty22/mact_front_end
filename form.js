@@ -35,7 +35,7 @@ function handleCreateForm(e, form){
     .then((response) => {
         return response.json()
     })
-    .then (mact => console.log(mact))
+    
     form.classList.add('hidden')
   
 }

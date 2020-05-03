@@ -1,5 +1,5 @@
-let usersUrl4 = 'http://localhost:3000/users'
-let mactsUrl4 = 'http://localhost:3000/macts'
+let usersUrl3 = 'http://localhost:3000/users'
+let mactsUrl3 = 'http://localhost:3000/macts'
 
 function renderMyMacts(){
     hideDivs()
@@ -43,7 +43,7 @@ function confirmDelete(mact, cardMact){
 }
 
 function deleteMact(mact){
-    fetch(mactsUrl4 + `/${mact.id}`,{
+    fetch(mactsUrl3 + `/${mact.id}`,{
         method: "DELETE"
     })
 
