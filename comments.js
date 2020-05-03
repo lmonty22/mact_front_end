@@ -3,31 +3,29 @@ let commentsUrl = 'http://localhost:3000/comments'
 
 
 function renderComments(comment){
-//    console.log('reached')
-//    debugger
 
     let commentsContainer = document.querySelector('.comments-container')
     let commentsUl= document.querySelector('.comments')
     let commentLi = document.createElement('li')
     commentLi.innerText = `${comment.text}` 
-
+    
     let br = document.createElement('br')
     let timestampP = document.createElement('p')
     timestampP.className= 'timestamp'
     let timestamp = new Date(comment.created_at).toDateString()
                                         //comment.user.username relationshop not working
     timestampP.innerText = `${timestamp} - @some_user`
-
-    
     commentLi.append(br, timestampP)
     commentsUl.append(commentLi)
+
+    const commentForm = document.querySelector('.comment-form')
+    commentForm.addEventListener('submit', (e) => addComment(e, mact))
 
 }
 
 function addComment(e, mact){
     e.preventDefault()
-    console.log('reached')
-
+    console.log()
     // let commentsContainer = document.querySelector('.comments-container')
     // let commentsUl= document.querySelector('.comments')
     // let commentLi = document.createElement('li')
@@ -48,8 +46,8 @@ function addComment(e, mact){
 
       let mactIdInput = e.target.parentElement.children[0].id
       let textInput = document.getElementById('comment-field').value
-    //   let userId = How do I access this?
-  
+      let userId = document.querySelector('.username').id
+
       let commentObj = {
           //updating the value of comments to reflect the newly added comment
             user_id: userId,
@@ -57,7 +55,7 @@ function addComment(e, mact){
             text: textInput
       }
 
-      fetch(commentsUrl + `/${id}`, {
+      fetch(commentsUrl, {
           method: 'POST',
           headers: {"Content-Type":"application/json"},
           body: JSON.stringify(commentObj)
@@ -65,7 +63,7 @@ function addComment(e, mact){
       .then((response) => response.json())
       .then((comment) => console.log(comment))
 
-      renderComments()
+    
       
       //clears form text area submission for better user experience
     //   document.getElementById('comment-field').reset()

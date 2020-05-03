@@ -77,6 +77,7 @@ function fetchMact(){
     .then(mactArray => displayMact(mactArray[0]))
 };
 
+
 function displayMact(mact){
     //     <div class= "mact-container" >
     //     <div class= "mact-viewer">
@@ -115,13 +116,15 @@ function displayMact(mact){
 
     if(mact.comments){
     mact.comments.forEach(comment => renderComments(comment))
-    }else{
-        const commentsUl= document.querySelector('.comments')
-        commentsUl.innerHTML= '<h2>No Comments</h2>'
-    }
+    // }else{
+    //     const commentsUl= document.querySelector('.comments')
+    //     commentsUl.innerHTML= '<h2>No Comments</h2>'
+    // }
 
     const commentForm = document.querySelector('.comment-form')
     commentForm.addEventListener('submit', (e) => addComment(e, mact))
+
+   
     
 };
 
@@ -174,8 +177,8 @@ function showPreviousMact(e){
             return displayMact(mact)
 
             }
-            else{ alert('Sorry, outta macts, go make one yourself!')}
+            else { alert('Sorry, outta macts, go make one yourself!')}
         })
 
-    
     }
+}
