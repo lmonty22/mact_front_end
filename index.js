@@ -97,7 +97,6 @@ function displayMact(mactArray, index){
     const header = document.querySelector('#default-h1')
     header.style.color = mact.text_color
     const mactDiv = document.querySelector('.mact-viewer')
-    // const imageDiv = document.querySelector('.image-div')
     mactDiv.id = mact.id
     const image = document.querySelector('.mact-image')
     image.src = mact.image
@@ -109,30 +108,26 @@ function displayMact(mactArray, index){
     const fwdArrow = document.querySelector('#fwd-arrow')
     const bwdArrow = document.querySelector('#bwd-arrow')
     // addeventlistener was doing something weird with passing through variables. 
-    fwdArrow.onclick = () => showNextMact(mactArray, mactContainer)
-    bwdArrow.onclick = () => showPreviousMact(mactArray, mactContainer)
+    fwdArrow.onclick = () => showNextMact(mactArray, index)
+    bwdArrow.onclick = () => showPreviousMact(mactArray, index)
 };
 
-function showNextMact(mactArray, mactContainer){
-    let index = parseInt(mactContainer.getAttribute('index-num')) + 1
+function showNextMact(mactArray, index){
+    index++ 
     if (mactArray[index]){
         displayMact(mactArray, index)
     }
     if (!mactArray[index]){
-        index -= 1 
-        displayMact(mactArray, index)
         alert('Sorry, outta macts, go make one yourself!')
     }
 }
 
-function showPreviousMact(mactArray, mactContainer){
-    let index = parseInt(mactContainer.getAttribute('index-num')) - 1
+function showPreviousMact(mactArray, index){
+    index--
     if (mactArray[index]){
         displayMact(mactArray, index)
     }
     if (!mactArray[index]){
-        index += 1 
-        displayMact(mactArray, index)
         alert('Sorry, outta macts, go make one yourself!')
     }
 }
