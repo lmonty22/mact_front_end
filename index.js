@@ -74,10 +74,10 @@ function renderUsername(user){
 function fetchMact(){
     fetch(`http://localhost:3000/macts`)
     .then(response => response.json())
-    .then(mactArray => displayMact(mactArray[0]))
+    .then(mactArray => displayMact(mactArray, 0))
 };
 
-function displayMact(mact){
+function displayMact(mactArray, index){
     //     <div class= "mact-container" >
     //     <div class= "mact-viewer">
     //     <h1 id="default-h1">Did you know?</h1>
@@ -89,8 +89,10 @@ function displayMact(mact){
     //     <button id="fwd-arrow">↪</button> 
     //     </div>
     // </div>
+    const mact = mactArray[index]
     hideDivs()
     const mactContainer = document.getElementById('mact-container')
+    mactContainer.setAttribute('index-num', index)
     mactContainer.classList.remove('hidden')
     const header = document.querySelector('#default-h1')
     header.style.color = mact.text_color
@@ -106,46 +108,31 @@ function displayMact(mact){
     username.innerText = `@${mact.user.username}`
     const fwdArrow = document.querySelector('#fwd-arrow')
     const bwdArrow = document.querySelector('#bwd-arrow')
-
-    fwdArrow.addEventListener('click', showNextMact)
-    bwdArrow.addEventListener('click', showPreviousMact)
-
+    // addeventlistener was doing something weird with passing through variables. 
+    fwdArrow.onclick = () => showNextMact(mactArray, mactContainer)
+    bwdArrow.onclick = () => showPreviousMact(mactArray, mactContainer)
 };
 
-function showNextMact(e){
-
-    let id = parseInt(e.target.parentElement.id)
-    // fetch next mact from the api 
-    // render the new mact to the DOM
-    fetch(mactsUrl + `/${id + 1 }`)
-    .then((response) => {
-        return response.json()
-    })
-    
-    .then((mact) => {
-        if(mact.id){
-        return displayMact(mact)
-        }
-        else{ alert('Sorry, outta macts, go make one yourself!')}
-    })
-
+function showNextMact(mactArray, mactContainer){
+    let index = parseInt(mactContainer.getAttribute('index-num')) + 1
+    if (mactArray[index]){
+        displayMact(mactArray, index)
+    }
+    if (!mactArray[index]){
+        index -= 1 
+        displayMact(mactArray, index)
+        alert('Sorry, outta macts, go make one yourself!')
+    }
 }
 
-function showPreviousMact(e){
-
-    let id = parseInt(e.target.parentElement.id)
-        // fetch next mact from the api 
-        // render the new mact to the DOM
-        fetch(mactsUrl + `/${id - 1 }`)
-        .then((response) => {
-            return response.json()
-        })
-        
-        .then((mact) => {
-            if(mact.id){
-            return displayMact(mact)
-            }
-            else{ alert('Sorry, outta macts, go make one yourself!')}
-        })
-    
+function showPreviousMact(mactArray, mactContainer){
+    let index = parseInt(mactContainer.getAttribute('index-num')) - 1
+    if (mactArray[index]){
+        displayMact(mactArray, index)
     }
+    if (!mactArray[index]){
+        index += 1 
+        displayMact(mactArray, index)
+        alert('Sorry, outta macts, go make one yourself!')
+    }
+}
