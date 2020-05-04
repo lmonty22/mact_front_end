@@ -10,6 +10,7 @@
     <script type="text/javascript" src='form.js'></script>
     <script type="text/javascript" src='myMacts.js'></script>
     <script type="text/javascript" src='comments.js'></script>
+    <script type="text/javascript" src='poll.js'></script>
     <title>Document</title>
 </head>
 <header class="header center">
@@ -32,7 +33,20 @@
                         <figcaption class="mact-username"></figcaption>
                     </figure>
                     <button id="bwd-arrow">↩</button>
-                    <button id="fwd-arrow">↪</button> 
+                    <button id="fwd-arrow">↪</button><br>
+                    <br>
+                        <div class="fact-value-btn">
+                            <button id="true-btn" class="meme-text">True</button>
+                            <button id="false-btn" class="meme-text">False</button>
+                        </div>
+
+
+                        <div class="results hidden">
+                            <h3 id= "result-h3" class="meme-text"></h3>
+
+                        </div>
+
+
                     </div>
 
 
@@ -40,9 +54,9 @@
                 <br>
 
                 <form class="comment-form form" id="comment-form">
-                      <label for="comment">Add a comment</label><br>
+                      <label for="comment" class="meme-text">Add a comment</label><br>
                       <input type="textarea" id="comment-field" placeholder="Comment ... "/><br>
-                      <button id="comment-btn">Submit!</button>
+                      <button id="comment-btn" class="meme-text">Submit!</button>
                 </form>
 
                 <div class='comments-container'>
@@ -80,8 +94,12 @@
                     <option value="orange">Orange</option>
                     <option value="green">Green</option>
                 </select><br>
+                <label for="true-false">True or False?</label>
+                <select id="fact-value">
+                    <option value="true">True</option>
+                    <option value="false">False</option>                    
+                </select><br>
                 <button id='submit-btn'>Submit!</button>
-                <button id='preview-btn'>Preview</button>
             </fieldset>
         </form>
     

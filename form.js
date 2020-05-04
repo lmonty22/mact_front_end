@@ -49,18 +49,21 @@ function validateForm(e, form){
 }
 
 function handleCreateForm(e, form){
-    
+   
     const titleInput = document.getElementById('title-field').value
     const imageUrlInput = document.getElementById('image-url-field').value
     const contentField = document.getElementById('content-field').value
     const fontColorField = document.getElementById('font-color').value
     const user_id = document.querySelector('.username').id
+    const factValue = document.getElementById('fact-value').value
+
     let mactObj = {
         title: titleInput,
         image: imageUrlInput,
         content: contentField,
         text_color: fontColorField,
-        user_id: user_id
+        user_id: user_id,
+        fact_value: factValue
     }
 
     fetch(mactsUrl2, {

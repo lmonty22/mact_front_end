@@ -89,6 +89,12 @@ function displayMact(mactArray, index){
     //     <button id="fwd-arrow">↪</button> 
     //     </div>
     // </div>
+    const factValueDiv = document.querySelector('.fact-value-btn')
+    factValueDiv.classList.remove('hidden')
+
+    const resultDiv = document.querySelector('.results')
+    resultDiv.classList.add('hidden')
+
     const commentsUl= document.querySelector('.comments')
     commentsUl.innerHTML= ''
 
@@ -114,6 +120,12 @@ function displayMact(mactArray, index){
     fwdArrow.onclick = () => showNextMact(mactArray, index)
     bwdArrow.onclick = () => showPreviousMact(mactArray, index)
 
+    const trueBtn = document.getElementById('true-btn')
+    const falseBtn = document.getElementById('false-btn')
+
+    trueBtn.onclick = () => showResults(mact , true)
+    falseBtn.onclick = () => showResults(mact, false)
+
 
     if(mact.comments){
     
@@ -126,10 +138,8 @@ function displayMact(mactArray, index){
     const commentForm = document.querySelector('.comment-form')
     commentForm.onsubmit = (e) => addComment(e)
     // commentForm.addEventListener('submit', (e) => addComment(e, mact))
-   
-    
+  
 };
-
 
 function showNextMact(mactArray, index){
     index++ 

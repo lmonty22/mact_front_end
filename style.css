@@ -86,12 +86,17 @@
 } */
 
 .comments li {
-  background-color: #fff3a9;
+  background-color:azure;
+  color: black;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 3px 4px blue;
 }
 
+#result-h3{
+  color: white;
+}
 
 .comments-h3{
   color: white;
