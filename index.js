@@ -68,7 +68,6 @@ function renderUsername(user){
     a.id = user.id 
     a.innerText = `Username: ${user.username}`
     header.append(a)
-
 }
 
 function fetchMact(){
@@ -114,16 +113,17 @@ function displayMact(mact){
     fwdArrow.addEventListener('click', showNextMact)
     bwdArrow.addEventListener('click', showPreviousMact)
 
+
     if(mact.comments){
+    
     mact.comments.forEach(comment => renderComments(comment))
     // }else{
     //     const commentsUl= document.querySelector('.comments')
     //     commentsUl.innerHTML= '<h2>No Comments</h2>'
-    // }
+    }
 
     const commentForm = document.querySelector('.comment-form')
     commentForm.addEventListener('submit', (e) => addComment(e, mact))
-
    
     
 };
@@ -181,4 +181,3 @@ function showPreviousMact(e){
         })
 
     }
-}
