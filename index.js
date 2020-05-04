@@ -73,11 +73,11 @@ function renderUsername(user){
 function fetchMact(){
     fetch(`http://localhost:3000/macts`)
     .then(response => response.json())
-    .then(mactArray => displayMact(mactArray[0]))
+    .then(mactArray => displayMact(mactArray, 0))
 };
 
 
-function displayMact(mact){
+function displayMact(mactArray, index){
     //     <div class= "mact-container" >
     //     <div class= "mact-viewer">
     //     <h1 id="default-h1">Did you know?</h1>
@@ -92,13 +92,14 @@ function displayMact(mact){
     const commentsUl= document.querySelector('.comments')
     commentsUl.innerHTML= ''
 
+    const mact = mactArray[index]
     hideDivs()
     const mactContainer = document.getElementById('mact-container')
+    mactContainer.setAttribute('index-num', index)
     mactContainer.classList.remove('hidden')
     const header = document.querySelector('#default-h1')
     header.style.color = mact.text_color
     const mactDiv = document.querySelector('.mact-viewer')
-    // const imageDiv = document.querySelector('.image-div')
     mactDiv.id = mact.id
     const image = document.querySelector('.mact-image')
     image.src = mact.image
@@ -109,9 +110,9 @@ function displayMact(mact){
     username.innerText = `@${mact.user.username}`
     const fwdArrow = document.querySelector('#fwd-arrow')
     const bwdArrow = document.querySelector('#bwd-arrow')
-
-    fwdArrow.addEventListener('click', showNextMact)
-    bwdArrow.addEventListener('click', showPreviousMact)
+    // addeventlistener was doing something weird with passing through variables. 
+    fwdArrow.onclick = () => showNextMact(mactArray, index)
+    bwdArrow.onclick = () => showPreviousMact(mactArray, index)
 
 
     if(mact.comments){
@@ -123,61 +124,43 @@ function displayMact(mact){
     }
 
     const commentForm = document.querySelector('.comment-form')
-    commentForm.addEventListener('submit', (e) => addComment(e, mact))
+    commentForm.onsubmit = (e) => addComment(e)
+    // commentForm.addEventListener('submit', (e) => addComment(e, mact))
    
     
 };
 
 
-function showNextMact(e){
+function showNextMact(mactArray, index){
+    index++ 
 
-
-    let id = parseInt(e.target.parentElement.id)
-
-    // fetch next mact from the api 
-    // render the new mact to the DOM
-
-    //maybe for loop? If an id jumps from 22 to 31, they will not show from the database
-
-    fetch(mactsUrl + `/${id + 1 }`)
-    .then((response) => {
-        return response.json()
-    })
-    
-    .then((mact) => {
-        if(mact.id){
+    if (mactArray[index]){
 
         const commentsUl= document.querySelector('.comments')
         commentsUl.innerHTML= ''
 
-        return displayMact(mact)
+        displayMact(mactArray, index)
 
         }
-        else{ alert('Sorry, outta macts, go make one yourself!')}
-    })
+        if (!mactArray[index]){
+            alert('Sorry, outta macts, go make one yourself!')
+        }
+    
 
 }
+function showPreviousMact(mactArray, index){
+    index--
 
-function showPreviousMact(e){
+    if (mactArray[index]){
 
-    let id = parseInt(e.target.parentElement.id)
-        // fetch next mact from the api 
-        // render the new mact to the DOM
-        fetch(mactsUrl + `/${id - 1 }`)
-        .then((response) => {
-            return response.json()
-        })
-        
-        .then((mact) => {
-            if(mact.id){
+        const commentsUl= document.querySelector('.comments')
+        commentsUl.innerHTML= ''
 
-            const commentsUl= document.querySelector('.comments')
-            commentsUl.innerHTML= ''
-    
-            return displayMact(mact)
+        displayMact(mactArray, index)
 
-            }
-            else { alert('Sorry, outta macts, go make one yourself!')}
-        })
+        }
+        if (!mactArray[index]){
+            alert('Sorry, outta macts, go make one yourself!')
+        }
 
-    }
+}
