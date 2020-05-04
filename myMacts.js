@@ -4,10 +4,10 @@ let mactsUrl3 = 'http://localhost:3000/macts'
 function renderMyMacts(){
     hideDivs()
     const myMacts = document.querySelector('#my-macts')
-    myMacts.innerHTML =""
+    myMacts.innerHTML = ""
     myMacts.classList.remove('hidden')
     const user_id = document.querySelector('.username').id
-    fetch(usersUrl4 +`/${user_id}`)
+    fetch(usersUrl3 +`/${user_id}`)
     .then(response=> response.json())
     .then(userMacts => userMacts.macts.forEach(mact=> renderMyMact(mact)))
 }

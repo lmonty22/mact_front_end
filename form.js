@@ -9,7 +9,8 @@ function toCreateForm(){
     form.classList.remove('hidden')
 
     const submitBtn = document.getElementById('submit-btn')
-    submitBtn.addEventListener('click', (e) =>  handleCreateForm(e, form))
+    submitBtn.onclick = (e) => handleCreateForm(e, form)
+    
 }
 
 function handleCreateForm(e, form){
@@ -35,7 +36,14 @@ function handleCreateForm(e, form){
     .then((response) => {
         return response.json()
     })
+    //after form submission render my macts div
+    .then(mact => renderMyMact(mact))
     
-    form.classList.add('hidden')
-  
+    renderMyMacts()
+            
+    
+    form.classList.add('hidden') 
+
+    //& reset form 
+    form.reset()
 }
