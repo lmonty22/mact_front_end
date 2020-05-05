@@ -9,7 +9,13 @@ function renderMyMacts(){
     const user_id = document.querySelector('.username').id
     fetch(usersUrl3 +`/${user_id}`)
     .then(response=> response.json())
-    .then(userMacts => userMacts.macts.forEach(mact=> renderMyMact(mact)))
+    .then(userMacts => {
+        if(userMacts.length > 0 ){
+        userMacts.macts.forEach(mact=> renderMyMact(mact))
+        }else{
+            myMacts.innerHTML = "<h3 class ='white center'>No Macts Yet! Go create one!</h3>"
+        }
+    })
 }
 
 function renderMyMact(mact){
