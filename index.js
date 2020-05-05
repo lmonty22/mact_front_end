@@ -94,6 +94,8 @@ function displayMact(mactArray, index){
 
     const resultDiv = document.querySelector('.results')
     resultDiv.classList.add('hidden')
+    const poll_div = document.querySelector('#poll-result')
+    poll_div.classList.add('hidden')
 
     const commentsUl= document.querySelector('.comments')
     commentsUl.innerHTML= ''

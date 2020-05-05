@@ -85,6 +85,9 @@
 
 } */
 
+.white {
+  color: white;
+}
 .comments li {
   background-color:azure;
   color: black;
