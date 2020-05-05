@@ -24,6 +24,9 @@ function hideDivs(){
     loginContainer.classList.add('hidden')
     const myMacts = document.querySelector('#my-macts')
     myMacts.classList.add('hidden')
+
+    const noMactsDiv = document.getElementById('no-macts-message')
+    noMactsDiv.classList.add('hidden')
 }
 
 function renderLogin(){

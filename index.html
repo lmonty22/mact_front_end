@@ -47,6 +47,12 @@
                         <div id="poll-result" class="hidden">
                         </div>
 
+                        <div class= "bar-graph white">
+                            <label for="correct-answers-bar" class="correct-bar-label"></label><br>
+                            <progress value="" max="1000" class="correct-bar tertiary"></progress>
+                            <label for="wrong-answers-bar" class="wrong-bar-label"></label><br>
+                            <progress value="" max="1000" class="wrong-bar secondary"></progress>
+                        </div>
 
                     </div>
 
@@ -88,7 +94,6 @@
                 <label for="text-color">Choose a font color!</label>
                 <select id="font-color">
                     <option value="white">White</option>
-                    <option value="black">Black</option>
                     <option value="blue">Blue</option>
                     <option value="red">Red</option>
                     <option value="yellow">Yellow</option>
@@ -106,6 +111,9 @@
     
     
     <div id="my-macts" class="container hidden">
+    </div>
+    <div class="no-macts white center hidden" id="no-macts-message">
+        <h3>No Macts Yet! Go Create One!</h3>
     </div>
 
 

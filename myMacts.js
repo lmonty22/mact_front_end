@@ -10,15 +10,19 @@ function renderMyMacts(){
     fetch(usersUrl3 +`/${user_id}`)
     .then(response=> response.json())
     .then(userMacts => {
-        if(userMacts.length > 0 ){
+        if(userMacts.macts.length > 0 ){
         userMacts.macts.forEach(mact=> renderMyMact(mact))
         }else{
-            myMacts.innerHTML = "<h3 class ='white center'>No Macts Yet! Go create one!</h3>"
+            let noMactsDiv = document.getElementById('no-macts-message')      
+            noMactsDiv.classList.remove('hidden')
         }
     })
 }
 
 function renderMyMact(mact){
+    let noMactsDiv = document.getElementById('no-macts-message')      
+    noMactsDiv.classList.add('hidden')
+
     const myMacts = document.querySelector('#my-macts')
     const cardMact = document.createElement('div')
     cardMact.id = `mact-${mact.id}`
