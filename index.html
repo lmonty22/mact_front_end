@@ -11,6 +11,7 @@
     <script type="text/javascript" src='myMacts.js'></script>
     <script type="text/javascript" src='comments.js'></script>
     <script type="text/javascript" src='poll.js'></script>
+    <script type="text/javascript" src='leaderboard.js'></script>
     <title>Document</title>
 </head>
 <header class="header center">
@@ -21,9 +22,15 @@
   </header>
 <body>
 
+    <div id='leaderboard' class="container white meme-text leaderboard">
+        <h3 class="meme-text leaderboard ">Leaderboard</h3>
+        <ul id='leaderboard-ul' class="leaderboard" ></ul>
+    </div>
 
     <div class="background"></div>
         <div class="foreground">
+                
+
                 <div id= 'mact-container'class= "mact-container hidden" >
                     <div class= "mact-viewer">
                         <h1 id="default-h1" class="meme-text">Did you know?</h1>
@@ -44,15 +51,14 @@
                         <div class="results hidden" id="result-div">
                             <h3 id= "result-h3" class="meme-text"></h3>
                         </div>
-                        <div id="poll-result" class="hidden">
+                        <div id="poll-result" class="hidden white">
+                            <label for="correct-answers-bar" class="correct-bar-label "></label><br>
+                            <progress value="" max="1000" class="correct-bar tertiary bar"></progress>
+                            <label for="wrong-answers-bar" class="wrong-bar-label"></label><br>
+                            <progress value="" max="1000" class="wrong-bar secondary bar"></progress>
                         </div>
 
-                        <div class= "bar-graph white">
-                            <label for="correct-answers-bar" class="correct-bar-label"></label><br>
-                            <progress value="" max="1000" class="correct-bar tertiary"></progress>
-                            <label for="wrong-answers-bar" class="wrong-bar-label"></label><br>
-                            <progress value="" max="1000" class="wrong-bar secondary"></progress>
-                        </div>
+                      
 
                     </div>
 

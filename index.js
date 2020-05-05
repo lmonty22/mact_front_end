@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // }else{
     //     loginForm.classList.add('hidden')
     // }
+    fetchTop3()
    
 });
 
