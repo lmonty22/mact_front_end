@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // }else{
     //     loginForm.classList.add('hidden')
     // }
-    fetchTop3()
    
 });
 
@@ -25,9 +24,10 @@ function hideDivs(){
     loginContainer.classList.add('hidden')
     const myMacts = document.querySelector('#my-macts')
     myMacts.classList.add('hidden')
-
     const noMactsDiv = document.getElementById('no-macts-message')
     noMactsDiv.classList.add('hidden')
+    const leaderBoard = document.getElementById('leaderboard')
+    leaderBoard.classList.add('hidden')
 }
 
 function renderLogin(){
@@ -93,6 +93,7 @@ function displayMact(mactArray, index){
     //     <button id="fwd-arrow">↪</button> 
     //     </div>
     // </div>
+
     const factValueDiv = document.querySelector('.fact-value-btn')
     factValueDiv.classList.remove('hidden')
 
@@ -105,7 +106,14 @@ function displayMact(mactArray, index){
     commentsUl.innerHTML= ''
 
     const mact = mactArray[index]
+
     hideDivs()
+    fetchTop3()
+
+    const leaderBoard = document.getElementById('leaderboard')
+    leaderBoard.classList.remove('hidden')
+
+
     const mactContainer = document.getElementById('mact-container')
     mactContainer.setAttribute('index-num', index)
     mactContainer.classList.remove('hidden')

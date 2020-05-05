@@ -36,12 +36,15 @@
 .card {
   /* text-align: center;
   border: grey solid 1px;
-  padding: 1rem;
-  width: 30rem;
-  height: 25rem; */
+  background-color: black;
+  color: white;
+  padding: 5rem;
+  width: 20rem;
+  height: 20rem;
+  margin: 3rem 1rem;
+  box-shadow: 3px 4px blue; */
   display: inline-grid;
-  /* box-shadow: 3px 4px blue;
-  background-color: white; */
+  font-size-adjust: 0.58;
 }
 
 .field-set{
@@ -74,6 +77,22 @@
   justify-content: center;
 }
 
+.leader{
+    text-align: center;
+    color: yellow;
+    border: grey solid 1px;
+    background-color: black;
+    padding: 2rem;
+    width: 9rem;
+    height: 16rem;
+    margin: 3rem 1rem;
+    box-shadow: 3px 4px yellow;
+}
+
+.leaderboard ul li{
+  color: white
+}
+
 .mact-container {
     text-align: center;
     border: grey solid 1px;
@@ -91,20 +110,17 @@
   width: auto;
   object-fit: cover;
 }
-
 .my-mact-image {
   justify-self: center;
-  height: 15;
+  height: 10rem;
   width: auto;
+  object-fit: cover;
 }
-
-/* .delete-btn {
-
-} */
 
 .white {
   color: white;
 }
+
 .comments li {
   background-color:azure;
   color: black;
@@ -154,15 +170,6 @@ background-color: black;
   height: 2rem;
 
 }
-
-/* .container {
-  padding: 1rem;
-  width: stretch;
-  height: auto;
-  display: none;
-  background: #515DA2;
-  opacity: .8;
-} */
 
 #bwd-arrow {
 

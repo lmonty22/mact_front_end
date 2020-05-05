@@ -1,9 +1,14 @@
 function fetchTop3(){
     console.log('top3')
+
+    const leaderboardUL = document.getElementById('leaderboard-ul')
+    leaderboardUL.innerHTML =''
+
     fetch('http://localhost:3000/poll_results')
     .then(response => response.json())
     .then(pollResultsArray => {
         const correct_answers = pollResultsArray.filter(pollResult => pollResult.is_user_correct == true)
+        
         const correct_usernames = correct_answers.map(ca => ca.user.username)
         const leaderboard = {};
         correct_usernames.forEach(function(x) {

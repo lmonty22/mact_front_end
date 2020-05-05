@@ -35,6 +35,8 @@ function renderMyMact(mact){
     const content = document.createElement('p')
     content.innerText = mact.content
     cardMact.classList.add('card')
+    cardMact.classList.add('center')
+    cardMact.classList.add('meme-text')
     myMacts.append(cardMact)
     const deleteBtn = document.createElement('button')
     deleteBtn.innerText= "Delete"
