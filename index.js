@@ -127,16 +127,33 @@ function displayMact(mactArray, index){
 
     trueBtn.onclick = () => showResults(mact , true)
     falseBtn.onclick = () => showResults(mact, false)
+    trueBtn.classList.remove('hidden')
+    falseBtn.classList.remove('hidden')
 
-
-    if(mact.comments){
+    let userId = document.querySelector('.username').id
+    let userPollResult = mact.poll_results.find(result => result.user_id == userId)
     
-    mact.comments.forEach(comment => renderComments(comment))
-    // }else{
-    //     const commentsUl= document.querySelector('.comments')
-    //     commentsUl.innerHTML= '<h2>No Comments</h2>'
+    if(userPollResult){
+        trueBtn.classList.add('hidden')
+        falseBtn.classList.add('hidden')
+        showResults(mact, userPollResult.user_answer)
     }
 
+    if(mact.comments.length > 0){
+
+        const commentsH3 = document.querySelector('.comments-h3')
+        commentsH3.innerText = "Comments"
+
+        mact.comments.forEach(comment => renderComments(comment))
+
+    }else{
+
+        const commentsH3 = document.querySelector('.comments-h3')
+        commentsH3.innerText = "No Comments"
+    }
+
+
+    
     const commentForm = document.querySelector('.comment-form')
     commentForm.onsubmit = (e) => addComment(e)
     // commentForm.addEventListener('submit', (e) => addComment(e, mact))
