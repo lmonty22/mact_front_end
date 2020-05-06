@@ -29,20 +29,13 @@
 .form{
 
   --form-border-color: blue;
-  --universal-margin: 15px;
+  --universal-margin: 15px 20px;
+  --universal-border-radius: 20px
   
 }
 
 .card {
-  /* text-align: center;
-  border: grey solid 1px;
-  background-color: black;
-  color: white;
-  padding: 5rem;
-  width: 20rem;
-  height: 20rem;
-  margin: 3rem 1rem;
-  box-shadow: 3px 4px blue; */
+
   display: inline-grid;
   font-size-adjust: 0.58;
 }
@@ -62,8 +55,8 @@
 
 
 .background {
-  background-image: url('https://cache.desktopnexus.com/thumbseg/1321/1321036-bigthumbnail.jpg');
-  background-size: cover;
+  background-image: url(Image/galaxy.jpg);
+  background-repeat: round;
   filter: opacity(50%);
   position: absolute;
   height: 100%;
