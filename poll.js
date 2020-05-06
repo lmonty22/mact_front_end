@@ -74,8 +74,6 @@ function handlePollResult(mact, pollResult){
     incorrectBarLabel.innerText = `${Math.floor(incorrectPercentage / 10) }% got this wrong!`
     const incorrectBar = document.querySelector('.wrong-bar')
     incorrectBar.value = incorrectPercentage
-
-    debugger
 }
 
 function handleExistingResults(mact){

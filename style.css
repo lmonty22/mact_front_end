@@ -93,6 +93,46 @@
   color: white
 }
 
+/* .buttons{
+  position: absolute;
+
+} */
+.captions{ 
+  /* position: absolute;  */
+  /* display: inline-block; */
+ 
+  left: 32.3em;
+  top: 38em;
+}    
+
+.buttons{
+  /* left: 32.3em;
+  top: 10em; */
+  position: sticky; top: 50px;
+  
+}
+ /* .direction-btns{ 
+  position: absolute; */
+  /* display: flex;  */
+  /* align-items: center;  
+  justify-content: center; */
+ /* }     */
+
+/* .fact-value-btn {
+  position: absolute;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+  /* display: flex; */
+  /* align-items: center;
+} */ 
+
+.mact-viewer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+
+}
 .mact-container {
     text-align: center;
     border: grey solid 1px;

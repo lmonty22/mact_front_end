@@ -4,8 +4,7 @@ let usersUrl2 = 'http://localhost:3000/users'
 
 
 function renderComments(comment){
-    console.log('reached')
-    
+
     let id = comment.user_id
 
     fetch(usersUrl + `/${id}` , {

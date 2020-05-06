@@ -1,5 +1,4 @@
 function fetchTop3(){
-    console.log('top3')
 
     const leaderboardUL = document.getElementById('leaderboard-ul')
     leaderboardUL.innerHTML =''

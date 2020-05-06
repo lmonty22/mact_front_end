@@ -29,59 +29,67 @@
 
     <div class="background"></div>
         <div class="foreground">
-                
+              
 
                 <div id= 'mact-container'class= "mact-container hidden" >
                     <div class= "mact-viewer">
                         <h1 id="default-h1" class="meme-text">Did you know?</h1>
-                        <figure class="image-div">
-                            <img class="mact-image">
-                        <figcaption class="mact-content meme-text"></figcaption>
-                        <figcaption class="mact-username"></figcaption>
-                    </figure>
-                    <button id="bwd-arrow">↩</button>
-                    <button id="fwd-arrow">↪</button><br>
-                    <br>
-                        <div class="fact-value-btn">
-                            <button id="true-btn" class="meme-text">True</button>
-                            <button id="false-btn" class="meme-text">False</button>
-                        </div>
-
-
-                        <div class="results hidden" id="result-div">
-                            <h3 id= "result-h3" class="meme-text"></h3>
-                        </div>
-                        <div id="poll-result" class="hidden white">
-                            <label for="correct-answers-bar" class="correct-bar-label "></label><br>
-                            <progress value="" max="1000" class="correct-bar tertiary bar"></progress>
-                            <label for="wrong-answers-bar" class="wrong-bar-label"></label><br>
-                            <progress value="" max="1000" class="wrong-bar secondary bar"></progress>
-                        </div>
-
-                      
-
+                    
+                        <figure class="image-div center">
+                            <img class="mact-image">                                
+                        </figure>
+                
+                        <div class="captions">
+                            <figcaption class="mact-content meme-text" ></figcaption> 
+                            
+                            <figcaption class="mact-username white"></figcaption>        
+                        </div>  
+                        <br> 
+                        <br> 
+                        <br>
+                        <br>
                     </div>
+                   
+                            <div class="buttons">
+                                <button id="bwd-arrow">↩</button>
+                                <button id="fwd-arrow">↪</button><br>
+                                <br>
+                                        
+                                <div class="fact-value-btn">
+                                
+                                    <button id="true-btn" class="meme-text">True</button>
+                                    <button id="false-btn" class="meme-text">False</button>
+                                </div>
 
+                                <div class="results hidden" id="result-div">
+                                    <h3 id= "result-h3" class="meme-text"></h3>
+                                </div>
+                                <div id="poll-result" class="hidden white">
+                                    <label for="correct-answers-bar" class="correct-bar-label "></label><br>
+                                    <progress value="" max="1000" class="correct-bar tertiary bar"></progress>
+                                    <label for="wrong-answers-bar" class="wrong-bar-label"></label><br>
+                                    <progress value="" max="1000" class="wrong-bar secondary bar"></progress>
+                                </div>
+                            </div>
 
-                <br>
-                <br>
+                        <br>
+                        <br>
 
-                <form class="comment-form form" id="comment-form">
-                      <label for="comment" class="meme-text">Add a comment</label><br>
-                      <input type="textarea" id="comment-field" placeholder="Comment ... "/><br>
-                      <button id="comment-btn" class="meme-text">Submit!</button>
-                </form>
+                        <form class="comment-form form" id="comment-form">
+                            <label for="comment" class="meme-text">Add a comment</label><br>
+                            <input type="textarea" id="comment-field" placeholder="Comment ... "/><br>
+                            <button id="comment-btn" class="meme-text">Submit!</button>
+                        </form>
 
-                <div class='comments-container'>
-                    <h3 class='comments-h3 meme-text'>Comments</h3>
-                    <ul class="comments">
-    
-                </div>
-    
-
-
-        </div>
-
+                        <div class='comments-container'>
+                            <h3 class='comments-h3 meme-text'>Comments</h3>
+                            <ul class="comments">
+            
+                        </div>
+                        
+                        
+            </div>
+            
         </div>
 
         <form class="center form hidden" id="create-form">
